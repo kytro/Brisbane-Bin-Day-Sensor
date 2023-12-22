@@ -280,6 +280,7 @@ class BneWasteCollection(object):
             _LOGGER.info("...Week query: {0}{1}{2}{3}{4}{5}{6}".format(self._base_url,self._weeks_table,'&q={"WEEK_STARTING":"',weekStartString,'","ZONE":"',collection[ATTR_COLLECTION_ZONE], '"}'))
             response = requests.get(self._base_url + self._weeks_table + '&q={"WEEK_STARTING":"' + weekStartString + '","ZONE":"' + collection[ATTR_COLLECTION_ZONE] + '"}')
             json=response.json()
+            _LOGGER.info(json)
             if json['success'] == True:
                 _LOGGER.info("...Successfully retrieved collection week dataset")
                 dic=json['result']
